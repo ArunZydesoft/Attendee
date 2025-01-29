@@ -1,6 +1,7 @@
 import React from "react";
 import BannerImage from "../components/BannerImage";
 import RegCategoryForm from "../components/RegCategoryForm";
+import Stepper from "../components/Stepper";
 
 const RegCategory = () => {
   return (
@@ -20,7 +21,10 @@ const RegCategory = () => {
           className="w-1/2 flex flex-col items-center justify-center h-fit"
           style={{ background: "linear-gradient(#FFF 0%, #F3F4F7 100%)" }}
         >
-          <div className="mt-10 grid gap-2 sm:mt-10 lg:grid-cols-1 lg:grid-rows-1 w-3/4">
+          <div>
+            <Stepper activeItem={3} />
+          </div>
+          <div className="grid gap-2 lg:grid-cols-1 lg:grid-rows-1 w-3/4">
             <p className="mt-2 text-2xl text-gray-950 max-lg:text-center">
               Registration category
             </p>

@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { setFormData } from "../actions";
+import React from "react";
 import BannerImage from "../components/BannerImage";
 import PersonalInfoForm from "../components/PersonalInfoForm";
+import Stepper from "../components/Stepper"
 
 const PersonalInfo: React.FC = () => {
   return (
@@ -17,12 +16,14 @@ const PersonalInfo: React.FC = () => {
         </div>
 
         {/* Right Section  */}
-
         <div
           className="w-1/2 flex flex-col items-center justify-center h-fit"
           style={{ background: "linear-gradient(#FFF 0%, #F3F4F7 100%)" }}
         >
-          <div className="mt-10 grid gap-2 sm:mt-10 lg:grid-cols-1 lg:grid-rows-1 w-3/4">
+          <div>
+            <Stepper activeItem={1} />
+          </div>
+          <div className="grid gap-2 lg:grid-cols-1 lg:grid-rows-1 w-3/4">
             <p className="mt-2 text-2xl text-gray-950 max-lg:text-center">
               Personal information
             </p>
