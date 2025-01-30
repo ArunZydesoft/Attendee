@@ -1,9 +1,10 @@
 import BannerImage from "../components/BannerImage";
+import userImg from "../assets/img/user.png";
 
 const Signin = () => {
   return (
     <div className="h-screen bg-white-100 ">
-      <div className="flex h-full mx-auto px-8">
+      <div className="flex h-full mx-auto px-8 gap-5">
         {/* Left Section */}
 
         <div className="w-1/2 text-white flex flex-col items-center justify-center relative">
@@ -14,8 +15,11 @@ const Signin = () => {
         <div className="w-1/2 bg-white flex items-center justify-center">
           <div className="w-full max-w-md">
             <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-              Sign In
+              Sign in to your account
             </h2>
+            <p className="mb-4 text-gray-500 text-center">
+              Attendees can access their registration at any time and have the ability to update contact, print a receipt invite others and hotel informations
+            </p>
             <form action="#" method="POST" className="space-y-4">
               <div>
                 <label
@@ -56,9 +60,17 @@ const Signin = () => {
               </button>
             </form>
 
-            <a href="#" className="text-sm text-blue-600 hover:underline">
+            <a href="#" className="text-sm text-blue-600 hover:underline block m-auto w-max mt-2">
               Forgot password?
             </a>
+            <div className="flex items-center py-5 px-3 justify-center gap-5 mt-10" style={{background:'#DBE6F2'}}>
+              <div>
+                New attendee registration
+              </div>
+              <div>
+                <img src={userImg} alt="User" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
