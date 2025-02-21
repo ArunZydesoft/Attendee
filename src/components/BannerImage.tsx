@@ -10,19 +10,19 @@ import info3Img from "../assets/img/info3.png";
 
 const BannerImage = () => {
   return (
-    <div>
+    <>
       {/* Background Image */}
-      <img
-        src={goldenGateImg}
-        alt="Background"
-        className="absolute inset-0 w-full h-full object-contain"
-      />
-
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-opacity-50"></div>
-
+      <div>
+        <img
+          src={goldenGateImg}
+          alt="Background"
+          className="absolute inset-0 w-full h-full object-cover p-15 md:p-5 rounded-[30px]"
+        />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-opacity-50"></div>
+      </div>
       {/* Text Content */}
-      <div className="relative z-10 text-center px-10 text-left">
+      <div className="relative z-10 text-center py-10 md:py-0 px-10 text-left text-white">
         <div className="flex items-center gap-4 mb-4">
           <img src={partner1Img} className="h-8" alt="Image" />
           <img src={partner2Img} className="h-8" alt="Image" />
@@ -47,7 +47,7 @@ const BannerImage = () => {
           <img src={info3Img} className="h-5" alt="Image" />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
