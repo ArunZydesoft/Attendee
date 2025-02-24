@@ -13,6 +13,7 @@ import SessionsEvent from "./pages/SessionsEvent";
 import ReviewInfo from "./pages/ReviewInfo";
 import AuthLayout from "./layouts/AuthLayout";
 import MainLayout from "./layouts/MainLayout";
+import MySchedule from "./pages/MySchedule";
 
 const App: React.FC = () => {
   return (
@@ -33,6 +34,7 @@ const App: React.FC = () => {
           <Route path="/regcategory" element={<RegCategory />} />
           <Route path="/sessions-event" element={<SessionsEvent />} />
           <Route path="/review-info" element={<ReviewInfo />} />
+          <Route path="/my-schedule" element={<MySchedule />} />
         </Route>
       </Routes>
     </Router>
