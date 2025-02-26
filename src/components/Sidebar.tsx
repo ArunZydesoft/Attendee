@@ -8,7 +8,7 @@ import { HomeIcon, IdentificationIcon, CalendarIcon, BriefcaseIcon, LifebuoyIcon
 const Sidebar = () => {
 
     return (
-        <div className="h-screen flex flex-col p-5 border-r-1 border-gray-500">
+        <div className="h-screen flex flex-col p-5 border-r-1 border-gray-500 sticky inset-0">
             <div className="p-5 bg-[linear-gradient(180deg,_#353535,_#1D1D1D)] rounded-[18px] mb-5">
                 <div className="flex flex-wrap items-center gap-4 mb-3">
                     <img src={partner1Img} className="h-8" alt="Image" />
