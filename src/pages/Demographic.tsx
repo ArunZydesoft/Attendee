@@ -1,4 +1,3 @@
-import React from "react";
 import BannerImage from "../components/BannerImage";
 import DemographicForm from "../components/DemographicForm";
 import Stepper from "../components/Stepper";

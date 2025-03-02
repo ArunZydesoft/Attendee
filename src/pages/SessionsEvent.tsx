@@ -1,4 +1,3 @@
-import React from "react";
 import BannerImage from "../components/BannerImage";
 import SessionsEventForm from "../components/SessionsEventForm";
 

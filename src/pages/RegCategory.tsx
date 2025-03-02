@@ -1,4 +1,3 @@
-import React from "react";
 import BannerImage from "../components/BannerImage";
 import RegCategoryForm from "../components/RegCategoryForm";
 import Stepper from "../components/Stepper";
