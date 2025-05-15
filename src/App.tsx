@@ -14,6 +14,7 @@ import ReviewInfo from "./pages/ReviewInfo";
 import AuthLayout from "./layouts/AuthLayout";
 import MainLayout from "./layouts/MainLayout";
 import MySchedule from "./pages/MySchedule";
+import Exhibitors from "./pages/Exhibitors";
 
 const App: React.FC = () => {
   return (
@@ -35,6 +36,7 @@ const App: React.FC = () => {
           <Route path="/sessions-event" element={<SessionsEvent />} />
           <Route path="/review-info" element={<ReviewInfo />} />
           <Route path="/my-schedule" element={<MySchedule />} />
+          <Route path="/exhibitors" element={<Exhibitors />} />
         </Route>
       </Routes>
     </Router>
