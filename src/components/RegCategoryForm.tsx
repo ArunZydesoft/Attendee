@@ -1,105 +1,75 @@
-import React, { useState } from "react";
-import PersonalFormSection from "./PersonalFormSection";
-import Checkbox from "./Checkbox";
-
-interface FormData {
-  country: string;
-  activeComponents: boolean;
-}
-
 const RegCategoryForm: React.FC = () => {
-  const [formData, setFormData] = useState<FormData>({
-    country: "",
-    activeComponents: true,
-  });
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    const { id, value, type } = e.target;
-
-    if (type === "checkbox") {
-      const { checked } = e.target as HTMLInputElement;
-      setFormData((prevData) => ({
-        ...prevData,
-        [id]: checked,
-      }));
-    } else {
-      setFormData((prevData) => ({
-        ...prevData,
-        [id]: value,
-      }));
-    }
-  };
   return (
     <>
-      <PersonalFormSection title="Conference options">
-        <Checkbox
-          id="activeComponents"
-          heading="Surpass - IMS, RIFC, and ARFTG sessions"
-          label="Superpass registration includes: all IMS, RFIC, ARFTG technical sessions and electronic proceedings; one full-day workshop or bootcamp 9or two half-day workshops or half - day bootcamps) electronic proceedings for all workshop days"
-          checked={formData.activeComponents}
-          onChange={handleChange}
-        />
-        <hr />
-
-        <Checkbox
-          id="activeComponents"
-          heading="IMS sessions"
-          label="Superpass registration includes: all IMS, RFIC, ARFTG technical sessions and electronic proceedings; one full-day workshop or bootcamp 9or two half-day workshops or half - day bootcamps) electronic proceedings for all workshop days"
-          checked={formData.activeComponents}
-          onChange={handleChange}
-        />
-
-        <hr />
-        <Checkbox
-          id="activeComponents"
-          heading="IMS single day"
-          label="Superpass registration includes: all IMS, RFIC, ARFTG technical sessions and electronic proceedings; one full-day workshop or bootcamp 9or two half-day workshops or half - day bootcamps) electronic proceedings for all workshop days"
-          checked={formData.activeComponents}
-          onChange={handleChange}
-        />
-
-        <div className="pointer-events-none mt-12 sm:mt-12 grid gap-4">
-          &nbsp;
+      <div className="space-y-6">
+        {/* Conference options */}
+        <div className="bg-white rounded-xl shadow p-6">
+          <h3 className="font-semibold mb-4">Conference options</h3>
+          <div className="space-y-4">
+            <label className="block">
+              <input type="checkbox" className="mr-2" />
+              <span className="font-medium">
+                Surpass – IMS, RFIC, and ARFTG sessions
+              </span>
+              <p className="text-sm text-gray-600">
+                Surpass registration includes: all IMS, RFIC, ARFTG technical
+                sessions and electronic proceedings; one full-day workshop or
+                bootcamp 9or two half-day workshops or half-day bootcamps)
+                electronic proceedings for all workshop days
+              </p>
+            </label>
+            <label className="block">
+              <input type="checkbox" className="mr-2" />
+              <span className="font-medium">IMS sessions</span>
+              <p className="text-sm text-gray-600">
+                Surpass registration includes: all IMS, RFIC, ARFTG technical
+                sessions and electronic proceedings; one full-day workshop or
+                bootcamp 9or two half-day workshops or half-day bootcamps)
+                electronic proceedings for all workshop days
+              </p>
+            </label>
+            <label className="block">
+              <input type="checkbox" className="mr-2" />
+              <span className="font-medium">IMS single day</span>
+              <p className="text-sm text-gray-600">
+                Surpass registration includes: all IMS, RFIC, ARFTG technical
+                sessions and electronic proceedings; one full-day workshop or
+                bootcamp 9or two half-day workshops or half-day bootcamps)
+                electronic proceedings for all workshop days
+              </p>
+            </label>
+          </div>
         </div>
-      </PersonalFormSection>
 
-      <PersonalFormSection title="Workshop / Boot camp / Technical lecture only">
-        <Checkbox
-          id="activeComponents"
-          heading="Workshop / Boot camp / Technical lecture only"
-          label="Please select this category if you only plan on attending workshops, Bootcamps and technical lectures"
-          checked={formData.activeComponents}
-          onChange={handleChange}
-        />
-      </PersonalFormSection>
+        {/* Workshop options */}
+        <div className="bg-white rounded-xl shadow p-6">
+          <h3 className="font-semibold mb-4">
+            Workshop / Boot camp / Technical lecture only
+          </h3>
+          <label className="block">
+            <input type="checkbox" className="mr-2" />
+            <span className="font-medium">
+              Workshop / Boot camp / Technical lecture only
+            </span>
+            <p className="text-sm text-gray-600">
+              Please select this category if you only plan on attending
+              workshops, Bootcamps and technical lectures
+            </p>
+          </label>
+        </div>
 
-      <PersonalFormSection title="Exhibit hall only options">
-        <Checkbox
-          id="activeComponents"
-          heading="Exhibit hall only options"
-          label="Exhibition registration includes access to the IMS plenary sesion and welcome reception on monday."
-          checked={formData.activeComponents}
-          onChange={handleChange}
-        />
-      </PersonalFormSection>
-
-
-      {/* Submit Button */}
-      <div className="mt-10 flex sm:mt-10 lg:grid-cols-1 lg:grid-rows-1 w-3/4">
-        <button
-          className="w-full bg-white text-black py-2 px-4 mx-4 rounded-md shadow font-medium hover:bg-gray-50 transition"
-          type="button"
-        >
-          Back
-        </button>
-        <button
-          className="w-full bg-blue-600 text-white py-2 px-4 mx-4 rounded-md shadow hover:bg-blue-500 font-medium transition"
-          type="submit"
-        >
-          Continue
-        </button>
+        {/* Exhibit only options */}
+        <div className="bg-white rounded-xl shadow p-6">
+          <h3 className="font-semibold mb-4">Exhibit hall only options</h3>
+          <label className="block">
+            <input type="checkbox" className="mr-2" />
+            <span className="font-medium">Exhibit only pass</span>
+            <p className="text-sm text-gray-600">
+              Exhibition registration includes access to the IMS plenary session
+              and welcome reception on monday.
+            </p>
+          </label>
+        </div>
       </div>
     </>
   );

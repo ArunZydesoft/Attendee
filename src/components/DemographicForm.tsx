@@ -40,6 +40,7 @@ const DemographicForm: React.FC = () => {
     { key: "mx", value: "Mexico" },
   ];
 
+
   return (
     <>
       <PersonalFormSection title="">
@@ -398,22 +399,6 @@ const DemographicForm: React.FC = () => {
           </div>
         </div>
       </PersonalFormSection>
-
-      {/* Submit Button */}
-      <div className="mt-10 flex sm:mt-10 lg:grid-cols-1 lg:grid-rows-1 w-3/4">
-        <button
-          className="w-full bg-white text-black py-2 px-4 mx-4 rounded-md shadow font-medium hover:bg-gray-50 transition"
-          type="button"
-        >
-          Back
-        </button>
-        <button
-          className="w-full bg-blue-600 text-white py-2 px-4 mx-4 rounded-md shadow hover:bg-blue-500 font-medium transition"
-          type="submit"
-        >
-          Continue
-        </button>
-      </div>
     </>
   );
 };

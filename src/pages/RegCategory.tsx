@@ -1,43 +1,49 @@
-import BannerImage from "../components/BannerImage";
-import RegCategoryForm from "../components/RegCategoryForm";
+import { useNavigate } from "react-router-dom";
+import SidebarExpanded from "../components/SidebarExpanded";
 import Stepper from "../components/Stepper";
+import RegCategoryForm from "../components/RegCategoryForm";
 
-const RegCategory = () => {
+export default function RegistrationOptionsPage() {
+  const navigate = useNavigate();
+
+  const handleContinue = () => {
+    navigate("/sessions-event");
+  };
+
+  const handleBack = () => {
+    navigate("/demographic");
+  };
+
   return (
-    <div className="h-screen bg-white-100 ">
-      <div className="flex h-full mx-auto">
-        {/* Left Section */}
-        <div
-          className="w-1/2 text-white flex flex-col items-center justify-center relative"
-          style={{ background: "#F3F4F7" }}
-        >
-          <BannerImage></BannerImage>
-        </div>
+    <div className="flex h-screen overflow-hidden bg-gray-50  max-w-[1720px] mx-auto justify-center w-full  ">
+      {/* Sidebar */}
+      <SidebarExpanded />
 
-        {/* Right Section  */}
+      {/* Main content */}
+      <div className="flex-1 transition-all duration-500 ">
+        <div className="max-w-[950px] mx-auto w-full bg-white shadow-lg p-6 md:p-10 lg:p-12 overflow-y-auto h-full">
+          {/* Stepper */}
+          <Stepper activeItem={3} />
 
-        <div
-          className="w-1/2 flex flex-col items-center justify-center h-fit"
-          style={{ background: "linear-gradient(#FFF 0%, #F3F4F7 100%)" }}
-        >
-          <div>
-            <Stepper activeItem={3} />
-          </div>
-          <div className="grid gap-2 lg:grid-cols-1 lg:grid-rows-1 w-3/4">
-            <p className="mt-2 text-2xl text-gray-950 max-lg:text-center">
-              Registration category
-            </p>
-          </div>
+          {/* Registration Options */}
+          <h2 className="text-xl font-semibold mb-6">Registration category</h2>
 
           <RegCategoryForm />
 
-          <div className="pointer-events-none mt-12 sm:mt-12 grid gap-4">
-            &nbsp;
+          {/* Navigation Buttons */}
+          <div className="flex justify-between mt-10">
+            <button className="px-6 py-2 border rounded" onClick={handleBack}>
+              Back
+            </button>
+            <button
+              className="px-6 py-2 bg-blue-600 text-white rounded"
+              onClick={handleContinue}
+            >
+              Continue
+            </button>
           </div>
         </div>
       </div>
     </div>
   );
-};
-
-export default RegCategory;
+}

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import TextInput from "./TextInput";
-import TextareaInput from "./TextareaInput";
 import PersonalFormSection from "./PersonalFormSection";
 
 interface FormData {
@@ -46,7 +45,7 @@ const PersonalInfoForm: React.FC = () => {
 
   return (
     <>
-      {/* Badge / Name Information Section */}
+      {/* Form Sections */}
       <PersonalFormSection title="Badge / Name Information">
         <TextInput
           id="firstName"
@@ -83,8 +82,7 @@ const PersonalInfoForm: React.FC = () => {
           onChange={handleChange}
           placeholder="Enter your job title"
         />
-
-        <p className="text-2xl text-center text-medium">Your badge</p>
+        {/* <p className="text-2xl text-center text-medium">Your badge</p>
         <TextareaInput
           id="badge"
           label=""
@@ -92,9 +90,9 @@ const PersonalInfoForm: React.FC = () => {
           onChange={handleChange}
           placeholder="Enter badge details"
         />
+         */}
       </PersonalFormSection>
 
-      {/* Address Information Section */}
       <PersonalFormSection title="Address Information">
         <TextInput
           id="address"
@@ -133,7 +131,6 @@ const PersonalInfoForm: React.FC = () => {
         />
       </PersonalFormSection>
 
-      {/* Contact Information Section */}
       <PersonalFormSection title="Contact Information">
         <TextInput
           id="phoneNumber"
@@ -148,21 +145,57 @@ const PersonalInfoForm: React.FC = () => {
         </p>
       </PersonalFormSection>
 
-      {/* Buttons */}
-      <div className="mt-10 flex sm:mt-10 lg:grid-cols-1 lg:grid-rows-1 w-3/4">
-        <button
-          className="w-full bg-white text-black py-2 px-4 mx-4 rounded-md shadow font-medium hover:bg-gray-50 transition"
-          type="button"
-        >
-          Back
-        </button>
-        <button
-          className="w-full bg-blue-600 text-white py-2 px-4 mx-4 rounded-md shadow hover:bg-blue-500 font-medium transition"
-          type="submit"
-        >
-          Continue
-        </button>
-      </div>
+      {/* Floating Panel */}
+      {(formData.firstName ||
+        formData.lastName ||
+        formData.jobTitle ||
+        formData.company ||
+        formData.address ||
+        formData.city ||
+        formData.state ||
+        formData.postalCode ||
+        formData.country) && (
+        <div className="fixed right-1 top-20 z-50 w-90 max-h-[90vh] overflow-y-auto bg-white">
+          <div className="text-white rounded-xl w-full text-center flex flex-col items-center justify-center border border-gray-200 shadow-lg">
+            <p className="text-3xl mb-2 bg-black rounded-t-xl p-8 w-full">
+              Sample Badge
+            </p>
+
+            <div className="bg-white text-black rounded w-full py-4 px-2 text-[1.1rem]">
+              <p className="font-bold">
+                {formData.firstName} {formData.lastName}
+              </p>
+
+              <p>{formData.jobTitle} </p>
+              <p>{formData.company} </p>
+
+              <p className="mt-1 leading-tight">
+                {formData.address && (
+                  <>
+                    {formData.address}
+                    <br />
+                  </>
+                )}
+                {(formData.state ||
+                  formData.city ||
+                  formData.postalCode ||
+                  formData.country) && (
+                  <>
+                    {formData.state}, {formData.city}, {formData.postalCode},{" "}
+                    {formData.country}
+                  </>
+                )}
+              </p>
+
+
+            </div>
+
+            <p className="mt-4 text-xs font-medium bg-black rounded-b-xl p-8 w-full">
+              Exhibit Only Non-Member
+            </p>
+          </div>
+        </div>
+      )}
     </>
   );
 };
